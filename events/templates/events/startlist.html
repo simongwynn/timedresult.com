@@ -1,0 +1,32 @@
+{% extends "events/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% if result.raceresult == '' %}
+
+<iframe src="
+{{ result.url }}
+{% if result.stages == 0 %}startlist.html
+{% elif result.stage0 == True %}Stage0_Startlist.html
+{% else %} Stage1_Startlist.html
+{% endif %}"
+style="height:8000px;width:100%;"></iframe>
+
+{% else %}
+<div id="divRRPublish" class="RRPublish"></div>
+<script type="text/javascript" src="https://my.raceresult.com/RRPublish/load.js.php?lang=en"></script>
+<script type="text/javascript">
+<!--
+	var rrp=new RRPublish(document.getElementById("divRRPublish"), {{ result.raceresult }}, "participants");
+	rrp.ShowTimerLogo=true;
+	rrp.ShowInfoText=false;
+-->
+</script>
+<style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</style>
+
+{% endif %}
+{% endblock %}

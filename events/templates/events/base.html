@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timedresult.com {{ result.title }}</title>
+  <link rel="shortcut icon" href={% static "events/favicon.ico" %}/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href={% static "events/custom.css" %}>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+      <style type="text/css">
+        .auto-style1 {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 10%;
+            float: left;
+        }
+        .auto-style3 {
+            float: left;
+            width: 135px;
+            height: 50px;
+        }
+        .auto-style4 {
+            height: 200px;
+            width: 100%
+        }
+        .auto-style5 {
+            font-size: large;
+            margin-bottom: 7px;
+            text-align: center;
+            height: 44px;
+        }
+        </style>
+</head>
+<body>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v6.0"></script>
+    <img src={% static "events/timedresult.png" %} alt="Logo" class="auto-style1">&nbsp;
+    <br>
+
+
+<div class="navbar">
+        <a class="active" href="../"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a href="../RD"><i class="fa fa-fw fa-bicycle"></i> Road Cycling</a>
+        <a href="../TR"><i class="fa fa-fw fa-bicycle"></i> Track Cycling</a>
+        <a href="../CX"><i class="fa fa-fw fa-bicycle"></i> Cyclo-Cross</a>
+        <a href="../MTB"><i class="fa fa-fw fa-bicycle"></i> Mountain-Bike</a>
+        <a href="../GR"><i class="fa fa-fw fa-bicycle"></i> Gravel</a>
+        <a href="../admin/"><i class="fa fa-fw fa-navicon"></i> Admin</a>
+    </div>
+     <div class="headimage">
+         <img src={% static "events/headerimage.png" %} alt="track" class="auto-style4" /><span></span>  <div class="fb-like" data-href="https://www.facebook.com/timedresult" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+
+    <br>
+    <br>
+       <br>
+<div class="container">
+{% block content %}{% endblock %}
+       </div>
+
+<br>
+<br>
+</body>
+<div class="footer">
+<a href="https://sport-st.com" target="_blank">
+<img src={% static "events/sportst.png" %} alt="Logo" class="auto-style3"></a><p class="auto-style5"><strong>&copy; 2020 Sport Services & Technology</strong></p>
+</div>
+
+
+
+</html>

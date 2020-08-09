@@ -1,0 +1,44 @@
+{% extends "events/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+<h1 class="mt-5"><b>CURRENT EVENTS</b></h1>
+<hr>
+{% for currentevent in currentevents %}
+<img src="{{ currentevent.image.url }}" height = "150" width = "150"> <br>
+    <a href="{% url 'detail' currentevent.id %}"><h2>{{ currentevent.title }}
+{% if currentevent.datefinish >= todaydate %}
+    <img src="{% static 'events/live.gif' %}" height = 25>
+{% endif %}
+        </h2>
+        </a>
+<br>
+<br>
+{% endfor %}
+<br>
+<br>
+<br>
+
+<br>
+<h1><b>UPCOMING EVENTS</b></h1>
+<hr>
+<div class="row">
+
+{% for upcomingevent in upcomingevents %}
+    <div class="col-lg-4 col-md-6">
+    <img src="{{ upcomingevent.image.url }}" class="img-fluid mb-2"">
+    <br>
+
+<h2>{{ upcomingevent.title }}</h2>
+<p>Start Date: {{ upcomingevent.datestart }}
+<br>End Date: {{ upcomingevent.datefinish }}</p>
+</div>
+{% endfor %}
+</div>
+</div>
+
+</div>
+{% endblock %}

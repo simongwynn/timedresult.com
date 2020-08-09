@@ -1,0 +1,50 @@
+{% extends "events/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% if result.raceresult == '' %}
+  {% if result.stages == 0 %}
+    <iframe src="
+{{ result.url }}Result.html"
+style="height:8000px;width:100%;"></iframe>
+
+{% else %}
+
+
+<div id="tabs">
+  <ul>
+{% for i in stages %}
+
+<li><a href="#stage-{{ i }}">Stage {{ i }}</a></li>
+{% endfor %}
+  </ul>
+
+{% for i in stages %}
+  <div id="stage-{{ i }}">
+  <iframe src="
+{{ result.url }}Stage{{ i }}_Result.html"
+style="height:11000px;width:100%;"></iframe>
+</div>
+{% endfor %}
+{% endif %}
+
+</div>
+{% else %}
+<div id="divRRPublish" class="RRPublish"></div>
+<script type="text/javascript" src="https://my.raceresult.com/RRPublish/load.js.php?lang=en"></script>
+<script type="text/javascript">
+<!--
+	var rrp=new RRPublish(document.getElementById("divRRPublish"), {{ result.raceresult }}, "results");
+	rrp.ShowTimerLogo=true;
+	rrp.ShowInfoText=false;
+-->
+</script>
+<style>
+  /* Add custom CSS here or elsewhere to change the design */
+</style>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "events/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<img src="{{ result.image.url }}" height = 300>
+<h1><b>{{ result.title }}</b> </h1>
+{% if result.startlist == True %}
+ <a class="btn btn-dark btn-lg" href="startlist" role="button">Startlist</a>
+{% endif %}
+<a class="btn btn-dark btn-lg" href="results" role="button">Result</a>
+<h3>Start Date: {{ result.datestart }}</h3>
+<h3>End Date: {{ result.datefinish }}</h3>
+
+
+{% endblock %}
+
+

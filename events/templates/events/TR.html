@@ -1,0 +1,21 @@
+{% extends "events/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1>TRACK CYCLING</h1>
+
+{% for event in events %}
+
+<hr>
+<img src="{{ event.image.url }}" height = 100>
+<a href="{% url 'detail' event.id %}"><h2>{{ event.title }}</h2></a>
+<p><b>Start Date:</b> {{ event.datestart }}<br>
+    <b>End Date:</b> {{ event.datefinish }}</p>
+<br>
+
+
+
+{% endfor %}
+{% endblock %}
